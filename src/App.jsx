@@ -10,6 +10,7 @@ import Home from './pages/home'
 import Login from './auth/login'
 import Create from './auth/create'
 import Navbar from './components/navbar'
+import Footer from './components/footer'
 // PAGES
 
 
@@ -27,6 +28,7 @@ function App() {
   <Route path='/auth/create' element={<Create/>}  >  </Route>
 
 </Routes>
+<Footer/>
 </BrowserRouter>
 </>
   )

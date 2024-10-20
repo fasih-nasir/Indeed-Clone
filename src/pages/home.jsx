@@ -19,11 +19,17 @@ import {
   faShoppingCart, 
   faShieldAlt, 
   faPenFancy, 
-  faChartLine 
+  faChartLine,
+  faUsers,
+  faUserFriends,
+  faBriefcase,
+  faSuitcase
 } from '@fortawesome/free-solid-svg-icons';
 import { Autoplay } from 'swiper/modules';
 // Images
 import img1 from '../assets/banner1.png';
+import img2 from '../assets/banner2.png';
+
 
 export default function Home() {
   const progressCircle = useRef(null);
@@ -36,26 +42,28 @@ export default function Home() {
   const [totalJobs, setTotalJobs] = useState(0);
   
   // Function to increment values
-  const incrementValue = (value, setValue) => {
-    let start = 0;
-    const end = value;
+  const incrementValue = (setValue) => {
+    let start = 0; // Starting point for counting
+    const end = 1000; // Target value to reach (1k)
     const duration = 2000; // Duration for counting in milliseconds
     const incrementTime = duration / end; // Calculate time between increments
 
     const timer = setInterval(() => {
-      start += 1;
-      setValue(start);
-      if (start === end) {
-        clearInterval(timer);
+      // Increment the start value by 1
+      if (start < end) {
+        start += 1; // Increment
+        setValue(start); // Update the state with the current count
+      } else {
+        clearInterval(timer); // Clear the interval when reaching the end
       }
     }, incrementTime);
   };
 
   useEffect(() => {
-    incrementValue(50_000, setRecruiters);
-    incrementValue(200_000, setDailyUsers);
-    incrementValue(800_000, setDailyJobs);
-    incrementValue(800_000, setTotalJobs);
+    incrementValue(setRecruiters);
+    incrementValue(setDailyUsers);
+    incrementValue(setDailyJobs);
+    incrementValue(setTotalJobs);
   }, []);
 
   const onAutoplayTimeLeft = (swiper, time, progress) => {
@@ -178,60 +186,65 @@ export default function Home() {
             <div className="jobBox text-center">
               <FontAwesomeIcon icon={faPenFancy} size="3x" />
               <h5>Content Writer</h5>
-              <p>142 Jobs Available</p>
+              <p>785 Jobs Available</p>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="jobBox text-center">
               <FontAwesomeIcon icon={faChartLine} size="3x" />
-              <h5>Market Research</h5>
-              <p>532 Jobs Available</p>
+              <h5>Business Analyst</h5>
+              <p>154 Jobs Available</p>
             </div>
           </SwiperSlide>
         </Swiper>
       </div>
-      {/* End of Slider Section */}
+{/* MILLIONS */}
+<section className="text-gray-600 body-font">
+      <div className="container mx-auto d-flex flex-column flex-md-row align-items-center py-5">
+        <div className="col-lg-6 mb-4 mb-md-0">
+          <img className="img-fluid rounded col-11" alt="hero" src={img2} />
+        </div>
+        <div className="col-lg-6 d-flex flex-column align-items-start text-center text-md-start">
+          <h1 className="title-font display-4 mb-4 fw-bold">
+            Millions Of Jobs.
+            <br className="d-none d-lg-block" />
+            Find The One That’s Right For You
+          </h1>
+          <p className="mb-4 lead">
+            Search all the open positions on the web. Get your own personalized salary estimate. Read reviews on over 600,000 companies worldwide. The right job is out there.
+          </p>
+          <div className="d-flex justify-content-center justify-content-md-start">
+            <button className="btn btn-primary me-3">Button</button>
+            <button className="btn btn-secondary">Button</button>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      {/* PROGRESS */}
-      <section className="text-gray-600 body-font">
-        <div className="container-fluid px-4 py-24 ">
-          <div className="d-flex flex-lg-row flex-column text-center ">
-            <div className="col-lg-3 col-12">
-              <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">
-                {recruiters.toLocaleString()}<span className="text-gray-500"> K+</span>
-              </h2>
-              <p className="leading-relaxed">
-                <FontAwesomeIcon icon={faUserTie} className="mr-1" />
-                Total Recruiters
-              </p>
-            </div>
-            <div className="col-lg-3 col-12">
-              <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">
-                {dailyUsers.toLocaleString()}<span className="text-gray-500"> K+</span>
-              </h2>
-              <p className="leading-relaxed">
-                <FontAwesomeIcon icon={faHeadset} className="mr-1" />
-                Daily Users
-              </p>
-            </div>
-            <div className="col-lg-3 col-12">
-              <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">
-                {dailyJobs.toLocaleString()}<span className="text-gray-500"> K+</span>
-              </h2>
-              <p className="leading-relaxed">
-                <FontAwesomeIcon icon={faClipboardCheck} className="mr-1" />
-                Daily Jobs
-              </p>
-            </div>
-            <div className="col-lg-3 col-12">
-              <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">
-                {totalJobs.toLocaleString()}<span className="text-gray-500"> K+</span>
-              </h2>
-              <p className="leading-relaxed">
-                <FontAwesomeIcon icon={faChartLine} className="mr-1" />
-                Total Jobs
-              </p>
-            </div>
+{/* MILLIONS */}
+      {/* Metrics Section */}
+      <section className="container-fluid m-0 p-0 py-5 ">
+        <h2 className="text-center mb-4">Our Achievements</h2>
+        <div className="row text-center py-3 div1">
+          <div className="col-lg-3 col-6">
+            <FontAwesomeIcon icon={faUsers} size="3x" />
+            <h1>{recruiters}</h1>
+            <p>Recruiters</p>
+          </div>
+          <div className="col-lg-3 col-6">
+            <FontAwesomeIcon icon={faUserFriends} size="3x" />
+            <h1>{dailyUsers}</h1>
+            <p>Daily Users</p>
+          </div>
+          <div className="col-lg-3 col-6">
+            <FontAwesomeIcon icon={faBriefcase} size="3x" />
+            <h1>{dailyJobs}</h1>
+            <p>Daily Jobs</p>
+          </div>
+          <div className="col-lg-3 col-6">
+            <FontAwesomeIcon icon={faSuitcase} size="3x" />
+            <h1>{totalJobs}</h1>
+            <p>Total Jobs</p>
           </div>
         </div>
       </section>
