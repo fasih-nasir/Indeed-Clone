@@ -3,13 +3,17 @@ import '../App.css';
 import '../index.css';
 // CSS
 
-// REACT
 import React, { useState, useEffect } from 'react';
 // REACT
 
 // AUTH
 import { auth, onAuthStateChanged } from '../auth/config';
 // AUTH
+
+// FIRESTORE
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../auth/config'; // Firestore config
+// FIRESTORE
 
 import { Link, useLocation } from 'react-router-dom';
 // ASSETS
@@ -20,12 +24,24 @@ export default function Navbar() {
   // STATE
   const [user, setUser] = useState(null); // Track current user
   const [isFixed, setIsFixed] = useState(false); // State for handling navbar position
+  const [profilePicture, setProfilePicture] = useState(''); // State to store the profile picture
   // STATE
 
   // CURRENT USER
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser); // Set user if authenticated
+
+      if (currentUser) {
+        // Firestore query to get profile picture for the current user
+        const q = query(collection(db, 'users'), where('email', '==', currentUser.email));
+        const querySnapshot = await getDocs(q);
+
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          setProfilePicture(data.profilePicture); // Assuming the field in Firestore is 'profilePicture'
+        });
+      }
     });
 
     return () => unsubscribe(); // Cleanup the listener
@@ -58,16 +74,14 @@ export default function Navbar() {
   return (
     <>
       {isAuthPath ? (
-        <div>
-       
-        </div>
+        <div></div>
       ) : (
         // NAVBAR IS SHOWN HERE
         <nav
           className={`navbar navbar-expand-lg navbar-light bg-light ${
             isFixed ? 'fixed-top shadow-sm scrolled' : ''
           }`}
-          style={{ transition: 'top 0.3s ease, background-color 0.3s ease' }} // Smooth transition for position and background
+          style={{ transition: 'top 0.3s ease, background-color 0.3s ease' }}
         >
           <div className="container-fluid d-flex flex-row align-items-center justify-content-between px-4">
             {/* Left Logo */}
@@ -96,7 +110,7 @@ export default function Navbar() {
                     Home
                   </Link>
                 </li>
-                {/* Find a Job with hover dropdown */}
+                {/* Additional Navbar items like 'Find a Job', 'Candidates', etc. */}
                 <li className="nav-item dropdown">
                   <Link
                     to="#"
@@ -124,7 +138,6 @@ export default function Navbar() {
                   </ul>
                 </li>
 
-                {/* Candidates */}
                 <li className="nav-item dropdown">
                   <Link
                     to="#"
@@ -152,7 +165,6 @@ export default function Navbar() {
                   </ul>
                 </li>
 
-                {/* Pages */}
                 <li className="nav-item dropdown">
                   <Link
                     to="#"
@@ -180,7 +192,6 @@ export default function Navbar() {
                   </ul>
                 </li>
 
-                {/* Contact */}
                 <li className="nav-item">
                   <Link
                     to="/contact"
@@ -192,11 +203,19 @@ export default function Navbar() {
               </ul>
             </div>
 
-            {/* Right Side Sign In Button */}
+            {/* Right Side Profile Image and Sign In Button */}
             <div className="d-flex justify-content-end col-3">
               {user ? (
-                <Link className="btn btn-outline-primary mx-2 col-4" to="/auth/logout">
-                  Logout
+                <Link className="btn btn-outline-primary mx-2 col-4 d-flex align-items-center justify-content-between" to="/auth/dash">
+                  {/* Profile Image */}
+                  <img
+                    src={profilePicture || 'default-profile.png'} // Default image if none is found
+                    alt="Profile"
+                    className="img-fluid col-8 "
+                    
+                  />
+                  {/* Right Arrow */}
+                  <i className="fa fa-caret-down" aria-hidden="true"></i>
                 </Link>
               ) : (
                 <Link className="btn btn-outline-primary mx-2 col-4" to="/auth/login">
@@ -207,8 +226,7 @@ export default function Navbar() {
           </div>
         </nav>
         // NAVBAR IS SHOWN HERE
-
-)}
+      )}
     </>
   );
 }

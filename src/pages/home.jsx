@@ -8,8 +8,12 @@ import 'swiper/css/navigation';
 // Import necessary styles
 import '../index.css';
 // Import Font Awesome icons
+// 
+import Jobs from '../components/jobs';
+// 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
+
   faLaptopCode, 
   faHeadset, 
   faMoneyBillWave, 
@@ -70,7 +74,9 @@ export default function Home() {
     progressCircle.current.style.setProperty('--progress', 1 - progress);
     progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
   };
+// Jobs
 
+// Jobs
   return (
     <>
       <section className="text-center text-lg-start">
@@ -97,10 +103,10 @@ export default function Home() {
       </section>
 
       {/* Slider Section */}
-      <div className="container-fluid px-4 mt-5">
+      <div className="container-fluid px-4 my-5">
         <h2 className="text-center my-2">Available Job Categories</h2>
         <p className="text-center my-2 mb-4">Find the job that’s perfect for you. about 800+ new jobs everyday</p>
-        <div className="progress-container">
+        <div className="progress-container my-4">
           {/* <div className="progress-circle" ref={progressCircle}></div> */}
           {/* <div className="progress-content" ref={progressContent}>2.5s</div> */}
         </div>
@@ -198,28 +204,11 @@ export default function Home() {
           </SwiperSlide>
         </Swiper>
       </div>
+      {/* JOBS  */}
+<Jobs/>
+      {/* JOBS */}
 {/* MILLIONS */}
-<section className="text-gray-600 body-font">
-      <div className="container mx-auto d-flex flex-column flex-md-row align-items-center py-5">
-        <div className="col-lg-6 mb-4 mb-md-0">
-          <img className="img-fluid rounded col-11" alt="hero" src={img2} />
-        </div>
-        <div className="col-lg-6 d-flex flex-column align-items-start text-center text-md-start">
-          <h1 className="title-font display-4 mb-4 fw-bold">
-            Millions Of Jobs.
-            <br className="d-none d-lg-block" />
-            Find The One That’s Right For You
-          </h1>
-          <p className="mb-4 lead">
-            Search all the open positions on the web. Get your own personalized salary estimate. Read reviews on over 600,000 companies worldwide. The right job is out there.
-          </p>
-          <div className="d-flex justify-content-center justify-content-md-start">
-            <button className="btn btn-primary me-3">Button</button>
-            <button className="btn btn-secondary">Button</button>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
 {/* MILLIONS */}
       {/* Metrics Section */}

@@ -11,6 +11,7 @@ import Login from './auth/login'
 import Create from './auth/create'
 import Navbar from './components/navbar'
 import Footer from './components/footer'
+import Dash from './auth/dash'
 // PAGES
 
 
@@ -26,7 +27,7 @@ function App() {
   <Route path='/company' element={<Company/>}  >  </Route>
   <Route path='/auth/login' element={<Login/>}  >  </Route>
   <Route path='/auth/create' element={<Create/>}  >  </Route>
-
+<Route path='/auth/dash' element={<Dash/>} ></Route>
 </Routes>
 <Footer/>
 </BrowserRouter>
