@@ -59,7 +59,7 @@ export default function Navbar() {
     <>
       {isAuthPath ? (
         <div>
-          <h1>Nothing</h1>
+       
         </div>
       ) : (
         // NAVBAR IS SHOWN HERE

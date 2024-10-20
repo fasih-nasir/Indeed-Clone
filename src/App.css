@@ -1,6 +1,7 @@
 :root{
   --color2:#0e264b;
   --color1:#163f7f;
+  --font-family:"Raleway", sans-serif;
 }
 
 body{
@@ -92,6 +93,11 @@ body{
   background-color: var(--color2);
 }
 button{
+  font-family: var(--font-family) !important;
+
   border: none !important;
   background-color: var(--color1) !important;
+}
+input,label,::placeholder{
+  font-family: var(--font-family) !important;
 }
