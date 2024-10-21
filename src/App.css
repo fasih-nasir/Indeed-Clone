@@ -101,3 +101,38 @@ button{
 input,label,::placeholder{
   font-family: var(--font-family) !important;
 }
+.hirediv{
+  
+  /* background-color: var(--color1); */
+}
+.hirediv>div{
+  padding: 100px 0px !important;
+  background-color: var(--color2);
+}
+.div4{
+  background-color: var(--color1) !important;
+}
+.div3{
+  padding: 50px 0px;
+  /* border: 2px solid red; */
+  background-color: var(--color2);
+  list-style: none !important;
+  text-decoration: none !important;
+  color: white !important;
+
+}
+.div3>div>i{
+  margin: 10px 0px;
+  border-radius: 50px;
+  color: var(--color1);
+  padding: 20px !important;
+  background-color: white;
+}
+.div3>p{
+  font-weight: bold;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+   
+  /* background-color: var(--color2); */
+}

@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Link } from 'react-router-dom';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 // Import necessary styles
 import '../index.css';
+import "../App.css"
 // Import Font Awesome icons
 // 
 import Jobs from '../components/jobs';
@@ -101,7 +103,39 @@ export default function Home() {
           </div>
         </div>
       </section>
+{/* HIRE ME  */}
+<section className="text-gray-600 body-font">
+      <div className="container-fluid px-0 py-24 mx-auto">
+        <div className="d-flex flex-row justify-content-center hirediv">
+          {/* Post a Job Section */}
+          <Link to="/postjob" style={{ listStyle: 'none', textDecoration: 'none' }} className="d-flex justify-content-center col-6 align-items-center flex-column m-0 p-0">
+          <div className="d-flex justify-content-center align-items-center mb-10 col-12 flex-column div3 px-4">
+            {/* <Link to="/postjob" className="d-flex justify-content-center align-items-center flex-column m-0 p-0"> */}
+              <div className="rounded-lg h-64 flex items-center justify-center bg-indigo-100">
+                <i className="fas fa-briefcase py-4" style={{fontSize:"54px"}}></i>
+              </div>
+              <h2 className=" text-2xl font-medium text-gray-900 mt-6 mb-3">Post a Job</h2>
+              <p className="leading-relaxed text-base text-center">Share your job openings with the world.</p>
+            {/* </Link> */}
+          </div>
+          </Link>
+          {/* Hire Me Section */}
+          <Link to="/hireme" style={{ listStyle: 'none', textDecoration: 'none' }} className="d-flex justify-content-center col-6 align-items-center flex-column m-0 p-0">
 
+          <div className=" d-flex justify-content-center align-items-center mb-10 col-12 flex-column div3 div4 px-4">
+            {/* <Link to="/hireme" className="d-flex justify-content-center align-items-center flex-column m-0 p-0"> */}
+              <div className="rounded-lg h-64 flex items-center justify-center bg-indigo-100">
+                <i className="fas fa-user-check " style={{fontSize:"54px"}}></i>
+              </div>
+              <h2 className="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">Hire Me</h2>
+              <p className="leading-relaxed text-base">Looking for a job? Let's connect!</p>
+            {/* </Link> */}
+          </div>
+</Link>
+        </div>
+      </div>
+    </section>
+{/* HIRE ME */}
       {/* Slider Section */}
       <div className="container-fluid px-4 my-5">
         <h2 className="text-center my-2">Available Job Categories</h2>

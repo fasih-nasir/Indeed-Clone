@@ -180,12 +180,12 @@ export default function Navbar() {
                   </Link>
                   <ul className="dropdown-menu">
                     <li>
-                      <Link className="dropdown-item" to="/post-job">
+                      <Link className="dropdown-item" to="/postjob">
                         Post a Job
                       </Link>
                     </li>
                     <li>
-                      <Link className="dropdown-item" to="/hire-me">
+                      <Link className="dropdown-item" to="/hireme">
                         Hire Me
                       </Link>
                     </li>
