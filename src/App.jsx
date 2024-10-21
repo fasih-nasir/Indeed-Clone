@@ -8,7 +8,8 @@ import Navbar from './components/navbar';
 import Footer from './components/footer';
 import Dash from './auth/dash';
 import Contact from './pages/contact';
-
+import Postjob from './pages/postjob';
+import Findjob from "./pages/findjob"
 function App() {
   const [count, setCount] = useState(0);
 
@@ -20,6 +21,9 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/company' element={<Company />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/postjob' element={<Postjob />} />
+          <Route path='/findjob' element={<Findjob />} />
+  
           <Route path='/auth/login' element={<Login />} />
           <Route path='/auth/create' element={<Create />} />
           <Route path='/auth/dash' element={<Dash />} />

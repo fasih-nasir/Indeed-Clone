@@ -115,7 +115,7 @@ export default function Navbar() {
                   <Link
                     to="#"
                     className={`nav-link dropdown-toggle ${
-                      location.pathname === '/find-a-job' ? 'active' : ''
+                      location.pathname === '/findjob' ? 'active' : ''
                     }`}
                     id="findJobDropdown"
                     role="button"
@@ -126,8 +126,8 @@ export default function Navbar() {
                   </Link>
                   <ul className="dropdown-menu">
                     <li>
-                      <Link className="dropdown-item" to="/find-a-job">
-                        Job List
+                      <Link className="dropdown-item" to="/findjob">
+                        Jobs
                       </Link>
                     </li>
                     <li>

@@ -38,61 +38,63 @@ function Contact() {
   };
 
   return (
-    <section className="text-gray-600 body-font relative">
-      <div className="container-fluid px-5 py-24 mx-auto">
-        <div className="flex flex-col text-center w-full mb-12">
-          <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact Us</h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.</p>
+    <section className="text-gray-600 body-font py-24 my-2 mt-5">
+  <div className="container d-flex justify-content-center align-items-center flex-column">
+    <div className="flex flex-col text-center w-full mb-12">
+      <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact Us</h1>
+      <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
+        Have a question or need assistance? Reach out to us,<br /> and we'll get back to you shortly!
+      </p>
+    </div>
+    <div className="row justify-content-center align-items-center col-12">
+      <form onSubmit={onSubmit} className="col-md-6 d-flex flex-column justify-content-center align-items-center">
+        <div className="mb-3 w-100">
+          <label htmlFor="name" className="form-label"></label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your Name"
+            required
+            className="form-control"
+          />
         </div>
-        <div className="lg:w-1/2 md:w-2/3 mx-auto">
-          <form onSubmit={onSubmit} className="flex flex-wrap -m-2">
-            <div className="p-2 w-1/2">
-              <div className="relative">
-                <label htmlFor="name" className="leading-7 text-sm text-gray-600">Name</label>
-                <input type="text" id="name" name="name" required className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-              </div>
-            </div>
-            <div className="p-2 w-1/2">
-              <div className="relative">
-                <label htmlFor="email" className="leading-7 text-sm text-gray-600">Email</label>
-                <input type="email" id="email" name="email" required className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-              </div>
-            </div>
-            <div className="p-2 w-full">
-              <div className="relative">
-                <label htmlFor="message" className="leading-7 text-sm text-gray-600">Message</label>
-                <textarea id="message" name="message" required className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
-              </div>
-            </div>
-            <div className="p-2 w-full">
-              <button type="submit" disabled={loading} className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                {loading ? 'Sending...' : 'Submit'}
-              </button>
-            </div>
-            <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-              <span>{result}</span>
-              <a className="text-indigo-500">example@email.com</a>
-              <p className="leading-normal my-5">49 Smith St.<br />Saint Cloud, MN 56301</p>
-              <span className="inline-flex">
-                {/* Add social media icons as needed */}
-                <a className="text-gray-500" href="#" aria-label="Facebook">
-                  <i className="fab fa-facebook-f"></i>
-                </a>
-                <a className="ml-4 text-gray-500" href="#" aria-label="Twitter">
-                  <i className="fab fa-twitter"></i>
-                </a>
-                <a className="ml-4 text-gray-500" href="#" aria-label="LinkedIn">
-                  <i className="fab fa-linkedin-in"></i>
-                </a>
-                <a className="ml-4 text-gray-500" href="#" aria-label="Instagram">
-                  <i className="fab fa-instagram"></i>
-                </a>
-              </span>
-            </div>
-          </form>
+        <div className="mb-3 w-100">
+          <label htmlFor="email" className="form-label"></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your Email"
+            required
+            className="form-control"
+          />
         </div>
-      </div>
-    </section>
+        <div className="mb-3 w-100">
+          <label htmlFor="message" className="form-label"></label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Your Message"
+            required
+            className="form-control"
+            rows="4"
+          ></textarea>
+        </div>
+        <div className="w-100">
+          <button
+            type="submit"
+            disabled={loading}
+            className="btn btn-primary w-100"
+          >
+            {loading ? 'Sending...' : 'Submit'}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
   );
 }
 

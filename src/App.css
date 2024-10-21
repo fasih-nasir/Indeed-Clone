@@ -101,10 +101,7 @@ button{
 input,label,::placeholder{
   font-family: var(--font-family) !important;
 }
-.hirediv{
-  
-  /* background-color: var(--color1); */
-}
+
 .hirediv>div{
   padding: 100px 0px !important;
   background-color: var(--color2);
@@ -135,4 +132,19 @@ input,label,::placeholder{
   border-radius: 20px;
    
   /* background-color: var(--color2); */
+}
+footer{
+  color: white !important;
+  background-color: var(--color2) !important;
+}
+footer>div{
+  color: white !important;
+
+}
+.div5{
+  /* padding: 0 !important; */
+  margin: 0 !important;
+  color: white;
+  background-color: var(--color2);
+  height: 100vh !important;
 }
