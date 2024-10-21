@@ -3,10 +3,11 @@ import { Form, Input, Button, Select, DatePicker, message } from 'antd';
 import moment from 'moment';
 import { collection, addDoc } from 'firebase/firestore';
 import { auth, db } from '../auth/config'; // Ensure you have this import
-
+import { useLocation, useNavigate } from 'react-router';
 const { Option } = Select;
 
 function Postjob() {
+  const navigate = useNavigate();
   const [userEmail, setUserEmail] = useState('');
   const [userUID, setUserUID] = useState('');
 
@@ -18,9 +19,10 @@ function Postjob() {
       setUserEmail(user.email); // Set email
       setUserUID(user.uid); // Set UID
     } else {
+      navigate('/'); 
       message.error('User not authenticated. Please log in.');
     }
-  }, []); // Run once when the component mounts
+  }, [navigate]); // Run once when the component mounts
 
   // Handle form submission
   const handleSubmit = async (values) => {

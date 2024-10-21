@@ -131,7 +131,10 @@ export default function Findjob() {
                       <strong>Category:</strong> {job.jobCategory}<br />
                       <strong>Type:</strong> {job.jobType}<br />
                       <strong>Level:</strong> {job.experienceLevel}<br />
-                      <strong>Description:</strong> {job.jobDescription}
+                      <strong className=''>Description:</strong> <span className='text-truncate col-4'> {job.jobDescription.split(" ").slice(0,6).join(" ")}</span>
+
+                      <br />
+                    <span><strong>Time</strong> :{job.postedTime.split(" ").slice(3,5).join(" ")}</span>
                     </p>
                     <button className="btn btn-primary w-100" onClick={() => handleApplyNow(job)}>
                       Apply Now

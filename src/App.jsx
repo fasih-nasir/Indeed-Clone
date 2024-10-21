@@ -10,6 +10,9 @@ import Dash from './auth/dash';
 import Contact from './pages/contact';
 import Postjob from './pages/postjob';
 import Findjob from "./pages/findjob"
+import Hireme from "./pages/hireme"
+import Jobpost from "./pages/postjob"
+import Seek from './pages/seek';
 function App() {
   const [count, setCount] = useState(0);
 
@@ -23,6 +26,8 @@ function App() {
           <Route path='/contact' element={<Contact />} />
           <Route path='/postjob' element={<Postjob />} />
           <Route path='/findjob' element={<Findjob />} />
+          <Route path='/hireme' element={<Hireme />} />
+          <Route path='/seekjob' element={<Seek />} />
   
           <Route path='/auth/login' element={<Login />} />
           <Route path='/auth/create' element={<Create />} />

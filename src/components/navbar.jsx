@@ -127,18 +127,18 @@ export default function Navbar() {
                   <ul className="dropdown-menu">
                     <li>
                       <Link className="dropdown-item" to="/findjob">
-                        Jobs
+                      Available Jobs
                       </Link>
                     </li>
                     <li>
-                      <Link className="dropdown-item" to="/job-posts">
-                        Who Posted the Job
+                      <Link className="dropdown-item" to="/seekjob">
+                      Job Seeker
                       </Link>
                     </li>
                   </ul>
                 </li>
 
-                <li className="nav-item dropdown">
+                {/* <li className="nav-item dropdown">
                   <Link
                     to="#"
                     className={`nav-link dropdown-toggle ${
@@ -163,7 +163,7 @@ export default function Navbar() {
                       </Link>
                     </li>
                   </ul>
-                </li>
+                </li> */}
 
                 <li className="nav-item dropdown">
                   <Link
