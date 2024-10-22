@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom'; // Navigation
 export default function Dash() {
   const [userData, setUserData] = useState(null); // State to store user details
   const [userJobPosts, setUserJobPosts] = useState([]); // State to store user's job posts
+  const [hireMePosts, setHireMePosts] = useState([]); // State to store "Hire Me" posts
+  const [showJobPosts, setShowJobPosts] = useState(true); // Show or hide job posts (default: show job posts)
   const navigate = useNavigate();
 
   // Fetch user data and job posts on component mount
@@ -33,8 +35,19 @@ export default function Dash() {
           id: doc.id,
           ...doc.data(),
         }));
-
         setUserJobPosts(jobs.slice(0, 5)); // Show only the first 5 job posts
+
+        // Fetch "Hire Me" posts for the current user
+        const hireMeQuery = query(
+          collection(db, 'hireme'),
+          where('uid', '==', currentUser.uid) // Match the logged-in user's UID
+        );
+        const hireMeSnapshot = await getDocs(hireMeQuery);
+        const hireMe = hireMeSnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setHireMePosts(hireMe.slice(0, 5)); // Show only the first 5 "Hire Me" posts
       } else {
         navigate('/'); // Redirect to home if user is not signed in
       }
@@ -68,6 +81,39 @@ export default function Dash() {
       return 'Unknown Date'; // Handle invalid or missing timestamp
     }
   };
+
+  // Render job posts or "Hire Me" posts
+  const renderPosts = (posts) => (
+    <div className="row g-4 mt-4">
+      {posts.length > 0 ? (
+        posts.map((post) => (
+          <div className="col-md-4" key={post.id}>
+            <div className="card">
+              <div className="card-body">
+                <h5 className="card-title">{post.jobTitle}</h5>
+                <p className="card-text">
+                  <strong>Category:</strong> {post.jobCategory}<br />
+                  <strong>Type:</strong> {post.jobType}<br />
+                  <strong>Level:</strong> {post.experienceLevel}<br />
+                  <strong className="col-4">Description:</strong> <span className="text-truncate col-4">{post.jobDescription.split(" ").slice(0, 6).join(" ")}</span>
+                  <br />
+                  <span><strong>Time:</strong> {formatPostedTime(post.postedTime)}</span>
+                </p>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => handleDeleteJob(post.id)}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        ))
+      ) : (
+        <p className="text-center">No posts available.</p>
+      )}
+    </div>
+  );
 
   return (
     <div className="container-fluid">
@@ -104,7 +150,7 @@ export default function Dash() {
 
           {/* Logout Button */}
           <div className="mt-auto d-flex justify-content-center">
-            <button className="btn mb-2 col-5" onClick={handleLogout}>
+            <button className="btn mb-2 col-5 text-white" onClick={handleLogout}>
               Logout<i className="fa fa-sign-out px-2" aria-hidden="true"></i>
             </button>
           </div>
@@ -114,37 +160,24 @@ export default function Dash() {
         <div className="col-9 position-relative">
           <h2 className="text-center mt-5">Welcome to the Dashboard</h2>
 
-          {/* User Job Posts */}
-          <div className="row g-4 mt-4">
-            {userJobPosts.length > 0 ? (
-              userJobPosts.map((job) => (
-                <div className="col-md-4" key={job.id}>
-                  <div className="card">
-                    <div className="card-body">
-                      <h5 className="card-title">{job.jobTitle}</h5>
-                      <p className="card-text">
-                        <strong>Category:</strong> {job.jobCategory}<br />
-                        <strong>Type:</strong> {job.jobType}<br />
-                        <strong>Level:</strong> {job.experienceLevel}<br />
-                        <strong className=''>Description:</strong> <span className='text-truncate col-4'> {job.jobDescription.split(" ").slice(0,6).join(" ")}</span>
-                     <br />
-                        <span><strong>Time</strong> :{job.postedTime.split(" ").slice(3,5).join(" ")}</span>
-                      </p>
-                     
-                      <button
-                        className="btn btn-danger"
-                        onClick={() => handleDeleteJob(job.id)}
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <p className="text-center">No job posts available.</p>
-            )}
+          {/* Simple Buttons to Toggle Sections */}
+          <div className="text-center mb-4">
+            <button
+              className="btn btn-primary me-3"
+              onClick={() => setShowJobPosts(true)}
+            >
+              Job You Post
+            </button>
+            <button
+              className="btn btn-secondary"
+              onClick={() => setShowJobPosts(false)}
+            >
+              Hire Me
+            </button>
           </div>
+
+          {/* Show either Job Posts or Hire Me Posts based on button selection */}
+          {showJobPosts ? renderPosts(userJobPosts) : renderPosts(hireMePosts)}
         </div>
       </div>
     </div>

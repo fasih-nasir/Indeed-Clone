@@ -92,8 +92,10 @@ export default function Home() {
               Each month, more than 3 million job seekers turn to our website in their search for work, making over 140,000 applications every single day.
             </p>
             <div className="d-flex justify-content-center justify-content-lg-start">
+              <Link to={"/hireme"}>
               <button className="btn btn-primary btn-lg px-4 me-3">Get Started</button>
-              <button className="btn btn-outline-secondary btn-lg px-4">Learn More</button>
+              </Link>
+              {/* <bu className="btn btn-outline-secondary btn-lg px-4">Learn More</bu/tton> */}
             </div>
           </div>
 
@@ -145,6 +147,7 @@ export default function Home() {
           {/* <div className="progress-content" ref={progressContent}>2.5s</div> */}
         </div>
         <Swiper
+        
           modules={[Autoplay]} // Add Autoplay, Pagination, Navigation modules
           slidesPerView={3} // Show 3 slides on large screens
           spaceBetween={30}

@@ -1,0 +1,27 @@
+/* src/components/Loader.css */
+
+/* Loader styling */
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0px !important; 
+    position: fixed !important;
+    background-color: white !important;
+    height: 100vh; /* Full screen height */
+  }
+  
+  .spinner {
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-top: 8px solid #3498db; /* Color of the spinner */
+    border-radius: 50%;
+    width: 60px; /* Size of the spinner */
+    height: 60px; /* Size of the spinner */
+    animation: spin 1s linear infinite; /* Spin animation */
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
