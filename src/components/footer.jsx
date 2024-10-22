@@ -26,24 +26,24 @@ const Footer = () => {
 
         <div className="d-flex flex-row justify-content-end align-items-center col-8 ">
           <div className="px-5">
-            <h6 className="text-uppercase">Home</h6>
+            <h6 className="text-uppercase fw-bolder"> Pages</h6>
             <ul className="list-unstyled">
-              <li><Link to="/" className="">Home</Link></li>
-              <li><Link to="/contact" className="">Contact</Link></li>
-              <li><Link to="/" className="">Sucess</Link></li>
-              <li><Link to="/" className="">Pages</Link></li>
+              <li><Link to="/" className="text-decoration-none text-white ">Home</Link></li>
+              <li><Link to="/contact" className="text-decoration-none text-white ">Contact</Link></li>
+              <li><Link to="/" className="text-decoration-none text-white ">Sucess</Link></li>
+              <li><Link to="/" className="text-decoration-none text-white ">Pages</Link></li>
             </ul>
           </div>
           <div className="px-5">
-            <h6 className="text-uppercase">Find job</h6>
-            <ul className="list-unstyled">
-              <li><Link to="/" className="">Job List</Link></li>
-              <li><Link to="/" className="">Hire As</Link></li>
-              <li><Link to="/" className="">Links</Link></li>
-              <li><Link to="/" className="">Links</Link></li>
+            <h6 className="text-uppercase fw-bolder">Find job</h6>
+            <ul className="list-unstyled text-decoration-none">
+              <li><Link to="/" className="text-decoration-none text-white">Job List</Link></li>
+              <li><Link to="/" className="text-decoration-none text-white">Hire As</Link></li>
+              <li><Link to="/" className="text-decoration-none text-white">Links</Link></li>
+              <li><Link to="/" className="text-decoration-none text-white">Links</Link></li>
             </ul>
           </div>
-          <div className="px-5">
+          {/* <div className="px-5">
             <h6 className="text-uppercase">Categories</h6>
             <ul className="list-unstyled">
               <li><Link to="/" className="">First Link</Link></li>
@@ -52,21 +52,20 @@ const Footer = () => {
               <li><Link to="/" className="">Fourth Link</Link></li>
             </ul>
           </div>
-         
+          */}
+<div className="px-5">
+  <input type="text" className='my-3' placeholder='Enter Your Email' name="" id="" />
+  <div className="d-flex mt-2 mt-md-0 text-white mt-4">
+            <a href="https://facebook.com" className=" text-white mx-2"><i className="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" className="text-white mx-2"><i className="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" className=" mx-2 text-white"><i className="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com" className=" mx-2 text-white"><i className="fab fa-linkedin"></i></a>
+          </div>
+</div>
         </div>
       </div>
 
-      <div className="bg-light py-3">
-        <div className="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-          <p className=" mb-0">© 2020 YourBrand — <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-primary">@YourTwitter</a></p>
-          <div className="d-flex mt-2 mt-md-0">
-            <a href="https://facebook.com" className=" mx-2"><i className="fab fa-facebook-f"></i></a>
-            <a href="https://twitter.com" className=" mx-2"><i className="fab fa-twitter"></i></a>
-            <a href="https://instagram.com" className=" mx-2"><i className="fab fa-instagram"></i></a>
-            <a href="https://linkedin.com" className=" mx-2"><i className="fab fa-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
+     
     </footer>
   );
 };

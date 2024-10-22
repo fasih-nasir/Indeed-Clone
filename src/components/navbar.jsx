@@ -206,7 +206,7 @@ export default function Navbar() {
             {/* Right Side Profile Image and Sign In Button */}
             <div className="d-flex justify-content-end col-3">
               {user ? (
-                <Link className="btn btn-outline-primary mx-2 col-4 d-flex align-items-center justify-content-between" to="/auth/dash">
+                <Link className="btn brt mx-2 col-4 d-flex align-items-center justify-content-between" to="/auth/dash">
                   {/* Profile Image */}
                   <img
                     src={profilePicture || 'default-profile.png'} // Default image if none is found
@@ -218,7 +218,7 @@ export default function Navbar() {
                   <i className="fa fa-caret-down" aria-hidden="true"></i>
                 </Link>
               ) : (
-                <Link className="btn btn-outline-primary mx-2 col-4" to="/auth/login">
+                <Link className="btn brt mx-2 col-4" to="/auth/login">
                   Sign In
                 </Link>
               )}

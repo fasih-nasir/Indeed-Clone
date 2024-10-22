@@ -135,8 +135,29 @@ input,label,::placeholder{
   /* background-color: var(--color2); */
 }
 footer{
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+
   color: white !important;
   background-color: var(--color2) !important;
+}
+.fix{
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  padding: 5px 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+z-index: 100 !important;
+  text-decoration: none;
+  color: white !important;
+  background-color: var(--color1);
+}
+.brt{
+  background-color: rgb(235, 235, 235) !important;
+}
+.fix>a{
+  color: white !important;
 }
 footer>div{
   color: white !important;

@@ -81,6 +81,10 @@ export default function Home() {
 // Jobs
   return (
     <>
+    <div className='fix'>
+      <a href="#"><i className="fa-solid fa-arrow-up"></i></a>
+      {/* <Link to={"#"}>Top</Link> */}
+    </div>
       <section className="text-center text-lg-start">
         <div className="container-fluid d-flex flex-lg-row flex-column align-items-center px-4 py-5">
           {/* Left Section with Text */}
