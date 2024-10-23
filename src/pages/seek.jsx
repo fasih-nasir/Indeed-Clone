@@ -47,7 +47,7 @@ export default function Seek() {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-3 div5 py-5">
+        <div className="col-2 div5 py-5">
           <h5>Filters</h5>
           
           {/* Category Filter */}
@@ -97,7 +97,7 @@ export default function Seek() {
           </button>
         </div>
 
-        <div className="col-9 py-2">
+        <div className="col-10 py-2">
           <div className="row">
             {filteredJobs.map((job) => (
               <div key={job.id} className="col-md-6 col-lg-4 mb-4">

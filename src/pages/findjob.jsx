@@ -69,7 +69,7 @@ export default function Findjob() {
   return (
     <div className="container-fluid p-0">
       <div className="row m-0">
-        <div className="col-md-3 div5 p-3">
+        <div className="col-md-2 div5 p-3">
           <h3 className="text-center">Job Filters</h3>
 
           <div className="mb-3 mt-5">
@@ -119,7 +119,7 @@ export default function Findjob() {
           </button>
         </div>
 
-        <div className="col-md-9 p-3">
+        <div className="col-md-10 p-3">
           <div className="row g-4">
             {filteredJobs.map(job => (
               <div className="col-md-4" key={job.id}>
